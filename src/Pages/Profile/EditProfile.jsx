@@ -136,7 +136,7 @@ function EditProfile({ modalIsOpen, closeModal, getRoute, profileDetails }) {
                             <div className='col-span-full mt-4 flex gap-3'>
                                 <button
                                     type="submit"
-                                    className="flex w-full justify-center rounded-md bg-gray-600 px-3 py-1.5 px-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+                                    className="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
                                 >
                                     Submit
                                 </button>
@@ -145,7 +145,7 @@ function EditProfile({ modalIsOpen, closeModal, getRoute, profileDetails }) {
                                         closeModal()
                                     }}
                                     type="button"
-                                    className="flex w-full justify-center rounded-md bg-gray-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+                                    className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
                                 >
                                     Close
                                 </button>

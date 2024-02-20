@@ -106,13 +106,13 @@ function Profile() {
 
                         <button onClick={() => {
                             uploadRef.current.click()
-                        }} className="flex items-center bg-gray-600 hover:bg-gray-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
+                        }} className="flex items-center bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
                             <FaImage />
                             <span>Image</span>
                         </button>
                         <button onClick={() => {
                             openEditProfile()
-                        }} className="flex items-center bg-gray-600 hover:bg-gray-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
+                        }} className="flex items-center bg-green-800 hover:bg-green-800 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
                             <FaEdit />
                             <span>Edit Profile</span>
                         </button>
