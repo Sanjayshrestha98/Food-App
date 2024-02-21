@@ -9,7 +9,7 @@ function Cartpage() {
 
     const getAllCart = async (values, actions) => {
         try {
-            let result = await axios.get('/cart/my-cart', {
+            let result = await axios.get('/carts/my-cart', {
                 params: {
                     search: "",
                     page: 1,
@@ -31,7 +31,7 @@ function Cartpage() {
 
     const removeFromCart = async (id, quantity) => {
         try {
-            let result = await axios.put('/cart/add-remove-item', {
+            let result = await axios.put('/carts/add-remove-item', {
                 cartitem: id,
                 quantity: -quantity
             })
@@ -47,7 +47,7 @@ function Cartpage() {
     }
     const addItem = async (id) => {
         try {
-            let result = await axios.put('/cart/add-remove-item', {
+            let result = await axios.put('/carts/add-remove-item', {
                 cartitem: id,
                 quantity: +1
             })
@@ -63,7 +63,7 @@ function Cartpage() {
     }
     const removeItem = async (id) => {
         try {
-            let result = await axios.put('/cart/add-remove-item', {
+            let result = await axios.put('/carts/add-remove-item', {
                 cartitem: id,
                 quantity: -1
             })

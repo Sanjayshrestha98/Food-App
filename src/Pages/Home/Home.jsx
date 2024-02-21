@@ -36,7 +36,7 @@ export default function Home() {
 
     const getAllProducts = async () => {
         try {
-            let result = await axios.get('/product', {
+            let result = await axios.get('/products', {
                 params: {
                     search: "",
                     page: 1,

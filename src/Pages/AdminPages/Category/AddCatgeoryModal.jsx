@@ -43,7 +43,7 @@ function AddCatgeoryModal({ modalIsOpen, closeModal, getRoute }) {
             overlayClassName="Overlay"
             className="Modal rounded-md p-5 md:w-1/4 max-h-screen overflow-auto"
         >
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">Add Category</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Add Category</h1>
 
             <div className='mt-4'>
                 <Formik
@@ -92,14 +92,14 @@ function AddCatgeoryModal({ modalIsOpen, closeModal, getRoute }) {
                             <div className="mt-8 flex gap-4">
                                 <button
                                     type="submit"
-                                    className="flex w-full justify-center rounded-md bg-gray-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+                                    className="flex w-full justify-center rounded-md bg-green-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
                                 >
                                     Add
                                 </button>
                                 <button
                                     onClick={closeModal}
                                     type="button"
-                                    className="flex w-full justify-center rounded-md bg-red-200 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-800 shadow-sm hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+                                    className="flex w-full justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-800 shadow-sm hover:bg-red-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
                                 >
                                     Close
                                 </button>

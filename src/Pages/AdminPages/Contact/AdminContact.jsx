@@ -40,7 +40,7 @@ function AdminContact() {
   }, [keyword, currentContactPage, contactPageSize])
 
   return (
-    <div className='mx-auto max-w-7xl w-full px-4'>
+    <div className='mx-auto w-full px-8 mt-4'>
 
       <div className="flex items-baseline justify-between  pb-6 pt-5">
         <h1 className="text-4xl font-bold tracking-tight text-gray-900">Contacts</h1>
@@ -62,7 +62,9 @@ function AdminContact() {
             {
               contactData &&
               (contactData.length === 0 ?
-                <p className='p-5 font-semibold text-red-800'>No Data</p> :
+                <tr>
+                  <td className='p-5 font-semibold text-red-800'>No Data</td>
+                </tr> :
                 contactData.map((value, index) => (
                   <tr key={index} className='border-b'>
                     <td className='p-3'>{index + 1}</td>

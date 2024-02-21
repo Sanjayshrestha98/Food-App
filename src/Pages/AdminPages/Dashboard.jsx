@@ -11,7 +11,7 @@ function Dashboard() {
 
   const getAllProduct = async () => {
     try {
-      let result = await axios.get('/product', {
+      let result = await axios.get('/products', {
         params: {
           search: "",
           page: 1,
@@ -67,7 +67,7 @@ function Dashboard() {
   }
   const getAllOrders = async () => {
     try {
-      let result = await axios.get('cart/admin/order', {
+      let result = await axios.get('carts/admin/order', {
         params: {
           search: "",
           page: 1,
@@ -92,13 +92,13 @@ function Dashboard() {
   }, [])
 
   return (
-    <div className='mx-auto max-w-7xl w-full px-4 mt-5'>
+    <div className='mx-auto w-full px-8 mt-10 '>
 
       <h1 className='text-4xl font-semibold'>Admin Dashboard</h1>
 
-      <div className='grid gap-4 grid-cols-4 mt-10'>
+      <div className='grid gap-4 lg:grid-cols-4 grid-cols-2 mt-10'>
 
-        <div className='shadow p-3 py-10  flex flex-col items-center'>
+        <div className='shadow p-3 py-10 flex flex-col items-center'>
           <label className='text-4xl mt-3 text-gray-500'>{totalUserCount}</label>
           <label className='font-semibold text-xl flex items-center gap-3'> Total Users</label>
         </div>

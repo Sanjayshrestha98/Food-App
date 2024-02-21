@@ -17,7 +17,7 @@ function SingleProduct() {
 
     const getProductDetail = async () => {
         try {
-            let result = await axios.get('/product/' + id)
+            let result = await axios.get('/products/' + id)
 
             if (result.data.success) {
                 setProductData(result?.data?.data ? result?.data?.data : [])
@@ -31,7 +31,7 @@ function SingleProduct() {
     }
     const addToCart = async () => {
         try {
-            let result = await axios.post('/cart/add/', {
+            let result = await axios.post('/carts/add/', {
                 item: productData?._id,
                 quantity: 1
             })

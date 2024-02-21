@@ -11,17 +11,13 @@ function EditUser({ modalIsOpen, closeModal, getRoute, profileDetails }) {
 
 
     const validationSchema = yup.object({
-        firstname: yup.string()
-            .required('This Field is required'),
-        lastname: yup.string()
+        name: yup.string()
             .required('This Field is required'),
         email: yup.string()
             .required('This Field is required'),
-        contact: yup.string()
+        mobile_no: yup.string()
             .required("Phone number is required")
             .matches(/^[9]\d{9}$/, "Invalid phone number"),
-        address: yup.string()
-            .required('This Field is required'),
     });
 
     const handleFormSubmit = async (values, actions) => {
@@ -64,10 +60,9 @@ function EditUser({ modalIsOpen, closeModal, getRoute, profileDetails }) {
                 <Formik
                     enableReinitialize
                     initialValues={{
-                        firstname: profileDetails?.firstname,
-                        lastname: profileDetails?.lastname,
+                        name: profileDetails?.name,
                         email: profileDetails?.email,
-                        contact: profileDetails?.contact,
+                        mobile_no: profileDetails?.mobile_no,
                         address: profileDetails?.address,
                     }}
                     validationSchema={validationSchema}
@@ -78,68 +73,37 @@ function EditUser({ modalIsOpen, closeModal, getRoute, profileDetails }) {
                     {(props) => (
                         <Form className='gap-3 grid grid-cols-2'>
                             <div className=''>
-                                <label htmlFor="firstname" className="block text-sm font-medium leading-6 text-gray-900">
-                                    First Name
+                                <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Full Name
                                 </label>
                                 <div className="mt-2">
                                     <Field
-                                        id="firstname"
-                                        name="firstname"
-                                        autoComplete="firstname"
+                                        id="name"
+                                        name="name"
+                                        autoComplete="name"
                                         required
                                         className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                                     />
                                 </div>
-                                <FieldError message={props.touched.firstname && props.errors.firstname} />
+                                <FieldError message={props.touched.name && props.errors.name} />
 
                             </div>
+
+                           
                             <div>
-                                <label htmlFor="lastname" className="block text-sm font-medium leading-6 text-gray-900">
-                                    Last Name
-                                </label>
-                                <div className="mt-2">
-                                    <Field
-                                        id="lastname"
-                                        name="lastname"
-                                        autoComplete="lastname"
-                                        required
-                                        className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                                <FieldError message={props.touched.lastname && props.errors.lastname} />
-
-                            </div>
-
-                            <div className=''>
-                                <label htmlFor="address" className="block  text-sm font-medium leading-6 text-gray-900">
-                                    Address
-                                </label>
-                                <div className="mt-2">
-                                    <Field
-                                        id="address"
-                                        name="address"
-                                        autoComplete="address"
-                                        required
-                                        className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                                <FieldError message={props.touched.address && props.errors.address} />
-
-                            </div>
-                            <div>
-                                <label htmlFor="contact" className="block text-sm font-medium leading-6 text-gray-900">
+                                <label htmlFor="mobile_no" className="block text-sm font-medium leading-6 text-gray-900">
                                     Contact
                                 </label>
                                 <div className="mt-2">
                                     <Field
-                                        id="contact"
-                                        name="contact"
-                                        autoComplete="contact"
+                                        id="mobile_no"
+                                        name="mobile_no"
+                                        autoComplete="mobile_no"
                                         required
                                         className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                                     />
                                 </div>
-                                <FieldError message={props.touched.contact && props.errors.contact} />
+                                <FieldError message={props.touched.mobile_no && props.errors.mobile_no} />
 
                             </div>
 
@@ -169,7 +133,7 @@ function EditUser({ modalIsOpen, closeModal, getRoute, profileDetails }) {
                             <div className='col-span-full mt-4'>
                                 <button
                                     type="submit"
-                                    className="flex w-full justify-center rounded-md bg-gray-600 px-3 py-1.5  text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+                                    className="flex w-full justify-center rounded-md bg-green-800 px-3 py-1.5  text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
                                 >
                                     Register
                                 </button>

@@ -35,7 +35,7 @@ function Profile() {
     }
     const getMyOrders = async () => {
         try {
-            let result = await axios.get('/cart/my-order/')
+            let result = await axios.get('/carts/my-order/')
             if (result.data.success) {
                 setOrderDetails(result.data.data)
 

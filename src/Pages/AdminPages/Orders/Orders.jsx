@@ -33,7 +33,7 @@ function Orders() {
 
     const getAllOrders = async () => {
         try {
-            let result = await axios.get('cart/admin/order', {
+            let result = await axios.get('carts/admin/order', {
                 params: {
                     email: keyword,
                     cart_no: cartkeyword,
@@ -98,7 +98,7 @@ function Orders() {
                 confirmButtonText: 'Yes!'
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    let result = await axios.put('cart/change-status', {
+                    let result = await axios.put('carts/change-status', {
                         cartItem: id,
                         status: status
                     })
@@ -117,7 +117,7 @@ function Orders() {
 
 
     return (
-        <div className='mx-auto max-w-7xl w-full px-4'>
+        <div className='mx-auto w-full px-8 mt-4'>
 
             {/* {
         isAddModalOpen &&
@@ -159,7 +159,7 @@ function Orders() {
                             <th className='p-3'>#</th>
                             <th className='p-3'>Customer Name</th>
                             <th className='p-3'>Contact</th>
-                            <th className='p-3'>email</th>
+                            <th className='p-3'>Email</th>
                             <th className='p-3'>Cart #</th>
                             <th className='p-3'>Product</th>
                             <th className='p-3'>Quantity</th>
@@ -172,7 +172,10 @@ function Orders() {
                         {
                             orderData &&
                             (orderData.length === 0 ?
-                                <p className='p-5 font-semibold text-red-800'>No Data</p> :
+                                <tr>
+                                    <td className='p-5 font-semibold text-red-800'>No Data</td>
+                                </tr>
+                                :
                                 orderData.map((value, index) => (
                                     <tr key={index} className='border-b'>
                                         <td className='p-3'>{index + 1}</td>

@@ -38,7 +38,7 @@ function AllProducts() {
 
     const getAllProducts = async () => {
         try {
-            let result = await axios.get('/product', {
+            let result = await axios.get('/products', {
                 params: {
                     search: search,
                     page: 1,

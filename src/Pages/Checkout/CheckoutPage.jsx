@@ -46,7 +46,7 @@ function CheckoutPage({ modalIsOpen, closeModal, getRoute, cartData }) {
                     window.location.replace(result.payment_url)
                 }
 
-                // let result = await axios.put('/cart/checkout/' + cartData?.cart._id, {
+                // let result = await axios.put('/carts/checkout/' + cartData?.cart._id, {
                 //     shipping_address: shippingAddress
                 // })
                 // if (result.data.success) {

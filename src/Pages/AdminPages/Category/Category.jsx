@@ -85,7 +85,7 @@ function Category() {
   }, [keyword, currentCategoryPage, categoryPageSize])
 
   return (
-    <div className='mx-auto max-w-7xl w-full px-4'>
+    <div className='mx-auto  w-full px-8 mt-4'>
 
       {
         isAddModalOpen &&
@@ -108,7 +108,7 @@ function Category() {
         <h1 className="text-4xl font-bold tracking-tight text-gray-900">Category</h1>
         <button onClick={() => {
           openAddModal()
-        }} className='bg-gray-800 p-3 rounded-md text-white font-semibold px-4'>Add Category</button>
+        }} className='bg-green-800 p-3 rounded-md text-white font-semibold px-4'>Add Category</button>
       </div>
 
       <div>
@@ -132,7 +132,9 @@ function Category() {
             {
               categoryData &&
               (categoryData.length === 0 ?
-                <p className='p-5 font-semibold text-red-800'>No Data</p> :
+                <tr>
+                  <td className='p-5 font-semibold text-red-800'>No Data</td>
+                </tr> :
                 categoryData.map((value, index) => (
                   <tr key={index} className='border-b'>
                     <td className='p-3'>{value?.name}</td>

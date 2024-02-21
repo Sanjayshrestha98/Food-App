@@ -51,9 +51,9 @@ export default function AdminHeader() {
                                 <a href='/'>
 
                                     <img
-                                        className="h-8 "
-                                        src="/app_logo.png"
-                                        alt="applog"
+                                        className="h-8 ml-4"
+                                        src="/logo.png"
+                                        alt="applogo"
                                     />
                                 </a>
                             </div>
@@ -78,7 +78,6 @@ export default function AdminHeader() {
                         <div className="">
                             <div className="ml-4 flex items-center md:ml-6">
 
-
                                 <div className="relative ml-3 group">
 
                                     {authUser?.userDetails?.image ? (
@@ -90,7 +89,7 @@ export default function AdminHeader() {
                                     ) : (
                                         <img
                                             className="w-7 rounded-full object-cover object-center sm:w-8 md:w-7 h-7 border"
-                                            src="/defaultUserImage.png"
+                                            src="/images/avatar.jpg"
                                             alt="user photo"
                                         />)}
                                     <div className='absolute bg-transparent shadow w-40 bg-white right-0 z-10 group-hover:block hidden min-w-max'>

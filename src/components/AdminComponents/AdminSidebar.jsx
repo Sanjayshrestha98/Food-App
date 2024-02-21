@@ -38,7 +38,7 @@ export default function AdminSidebar() {
   };
 
   return (
-    <div className={`min-h-full  md:bg-[#151036] max-w-[200px] md:w-full ${open ? 'w-full bg-[#151036]' : 'w-10 bg-white'}`}>
+    <div className={`fixed z-50 md:z-0 md:sticky items-start md:bg-[#151036] max-w-[200px] w-10 h-10 md:h-screen md:w-full top-5 md:top-0 ${open ? 'w-52 bg-[#151036] h-screen min-h-full overflow-auto !top-0' : ' h-10 '}`}>
       <>
         <div className="mx-auto max-w-7xl  ">
           <div className="flex flex-col h-full  justify-between">
@@ -78,13 +78,10 @@ export default function AdminSidebar() {
             <div className="-mr-2 flex md:hidden">
               {/* Mobile menu button */}
               <button
-
                 onClick={() => {
                   setOpen(!open)
                 }}
-
-                className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                <span className="absolute -inset-0.5" />
+                className="relative inline-flex items-center justify-center rounded-md  p-2 text-gray-700 hover:bg-gray-100 focus:outline-none ">
                 <span className="sr-only">Open main menu</span>
                 {open ? (
                   <MdClose className="block h-6 w-6" aria-hidden="true" />

@@ -65,7 +65,7 @@ function EditProduct({ modalIsOpen, closeModal, getRoute, productData }) {
       //   formData.append(key, value);
       // }
 
-      let result = await axios.put('/product/' + productData._id, formData)
+      let result = await axios.put('/products/' + productData._id, formData)
 
       if (result.data.success) {
         toast.success('Product Edited Successfully')
@@ -90,7 +90,7 @@ function EditProduct({ modalIsOpen, closeModal, getRoute, productData }) {
         confirmButtonText: 'Yes, Delete it!'
       }).then(async (result) => {
         if (result.isConfirmed) {
-          let result = await axios.put('product/' + productData?._id, {
+          let result = await axios.put('products/' + productData?._id, {
             replace_images_paths: [path]
           })
           if (result.data.success) {

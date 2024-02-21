@@ -34,7 +34,7 @@ function Product() {
 
   const getAllProduct = async () => {
     try {
-      let result = await axios.get('/product', {
+      let result = await axios.get('/products', {
         params: {
           search: keyword,
           page: currentProductPage,
@@ -72,7 +72,7 @@ function Product() {
         confirmButtonText: 'Yes, Delete it!'
       }).then(async (result) => {
         if (result.isConfirmed) {
-          let result = await axios.delete('product/' + id)
+          let result = await axios.delete('products/' + id)
           if (result.data.success) {
             getAllProduct()
             toast.success('Deleted Successfully')
@@ -88,7 +88,7 @@ function Product() {
 
 
   return (
-    <div className='mx-auto max-w-7xl w-full px-4'>
+    <div className='mx-auto w-full px-8 mt-4'>
 
       {
         isAddModalOpen &&
@@ -111,7 +111,7 @@ function Product() {
         <h1 className="text-4xl font-bold tracking-tight text-gray-900">Product</h1>
         <button onClick={() => {
           openAddModal()
-        }} className='bg-gray-800 p-3 rounded-md text-white font-semibold px-4'>Add Product</button>
+        }} className='bg-green-800 p-3 rounded-md text-white font-semibold px-4'>Add Product</button>
       </div>
       <div>
         <input className='border p-2' type='string' placeholder='Search' onChange={(e) => {
@@ -137,7 +137,10 @@ function Product() {
             {
               productData &&
               (productData.length === 0 ?
-                <p className='p-5 font-semibold text-red-800'>No Data</p> :
+                <tr>
+                  <td className='p-5 font-semibold text-red-800'>No Data</td>
+                </tr>
+                :
                 productData.map((value, index) => (
                   <tr key={index} className='border-b'>
                     <td className='p-3'>{index + 1}</td>
