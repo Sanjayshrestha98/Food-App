@@ -137,24 +137,24 @@ function Orders() {
       } */}
 
             <div className="flex items-baseline justify-between  pb-6 pt-5">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900">Order</h1>
+                <h1 className="text-4xl font-bold tracking-tight dark:text-white text-gray-900 ">Order</h1>
                 {/* <button onClick={() => {
           openAddModal()
         }} className='bg-gray-800 p-3 rounded-md text-white font-semibold px-4'>Add Order</button> */}
             </div>
             <div className='flex flex-wrap gap-3'>
-                <input className='border p-2' type='string' placeholder='Search By Email' onChange={(e) => {
+                <input className='border p-2 dark:bg-gray-900' type='string' placeholder='Search By Email ' onChange={(e) => {
                     setKeyword(e.target.value)
                     setCurrentOrderPage(1)
                 }} />
-                <input className='border p-2' type='number' placeholder='Search By Cart #' onChange={(e) => {
+                <input className='border p-2 dark:bg-gray-900' type='number' placeholder='Search By Cart #' onChange={(e) => {
                     setCartKeyword(e.target.value)
                     setCurrentOrderPage(1)
                 }} />
             </div>
-            <div className='w-full my-5  bg-white'>
+            <div className='w-full my-5  bg-white dark:bg-gray-900'>
                 <table className="table-auto w-full text-left ">
-                    <thead className='font-semibold border-b bg-gray-100'>
+                    <thead className='font-semibold border-b bg-gray-100 dark:bg-gray-900'>
                         <tr className='opacity-75'>
                             <th className='p-3'>#</th>
                             <th className='p-3'>Customer Name</th>
@@ -220,13 +220,13 @@ function Orders() {
 
                     </tbody>
                 </table>
-                <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+                <div className="flex items-center justify-between border-t border-gray-200 bg-white dark:bg-gray-900 px-4 py-3 sm:px-6">
                     <div className="flex flex-1 justify-between sm:hidden">
-                        <a href="#" className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
-                        <a href="#" className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
+                        <a href="#" className="relative inline-flex items-center rounded-md border border-gray-300 bg-white dark:bg-gray-900 px-4 py-2 text-sm font-medium dark:text-white text-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 ">Previous</a>
+                        <a href="#" className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white dark:bg-gray-900 px-4 py-2 text-sm font-medium dark:text-white text-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">Next</a>
                     </div>
                     <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-                        <div className='text-sm text-gray-700'>
+                        <div className='text-sm dark:text-white text-gray-700'>
                             <p className="font-semibold">
                                 {totalOrderCount} Total Results
                             </p>
@@ -247,14 +247,14 @@ function Orders() {
                                     disabled={currentOrderPage === 1}
                                     onClick={() => {
                                         setCurrentOrderPage(currentOrderPage - 1)
-                                    }} className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0">
+                                    }} className="relative inline-flex items-center rounded-l-md px-2 py-2 dark:text-white text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-offset-0">
                                     <span className="sr-only">Previous</span>
                                     <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
                                     </svg>
                                 </button>
 
-                                <a className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0">
+                                <a className="relative inline-flex items-center px-4 py-2 text-sm font-semibold dark:text-white text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-offset-0">
                                     Page {currentOrderPage} of {totalOrderPage}
                                 </a>
 
@@ -262,7 +262,7 @@ function Orders() {
                                     disabled={currentOrderPage === totalOrderPage}
                                     onClick={() => {
                                         setCurrentOrderPage(currentOrderPage + 1)
-                                    }} className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0">
+                                    }} className="relative inline-flex items-center rounded-r-md px-2 py-2 dark:text-white text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-offset-0">
                                     <span className="sr-only">Next</span>
                                     <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />

@@ -76,13 +76,13 @@ function Profile() {
     console.log(orderDetails)
 
     return (
-        <div className="h-full bg-gray-50 p-8 max-w-7xl mx-auto">
+        <div className="h-full bg-gray-50 dark:bg-black p-8 max-w-7xl mx-auto">
 
             {
                 editProfile &&
                 <EditProfile modalIsOpen={editProfile} closeModal={closeEditProfile} getRoute={getProfileDetails} profileDetails={profileDetails} />
             }
-            <div className=" rounded-lg bg-white pb-8">
+            <div className=" rounded-lg bg-white dark:bg-gray-900 dark:text-white pb-8">
 
                 <div className="flex flex-col items-start px-12 ">
                     {
@@ -118,26 +118,26 @@ function Profile() {
                         </button>
                     </div>
                     <div className="p-8">
-                        <ul className="mt-2 flex flex-wrap gap-10 text-gray-700">
+                        <ul className="mt-2 flex flex-wrap gap-10 text-gray-700 dark:text-white">
                             <li className="flex flex-col py-1 gap-1">
                                 <span className="font-bold">Full Name:</span>
-                                <span className="text-gray-700">{profileDetails?.name}</span>
+                                <span className="dark:text-white text-gray-700">{profileDetails?.name}</span>
                             </li>
                             {/* <li className="flex flex-col py-1 gap-1">
                                 <span className="font-bold">Last Name:</span>
-                                <span className="text-gray-700">{profileDetails?.lastname}</span>
+                                <span className="dark:text-white text-gray-700">{profileDetails?.lastname}</span>
                             </li> */}
                             <li className="flex flex-col py-1 gap-1">
                                 <span className="font-bold">Email:</span>
-                                <span className="text-gray-700">{profileDetails?.email}</span>
+                                <span className="dark:text-white text-gray-700">{profileDetails?.email}</span>
                             </li>
                             <li className="flex flex-col py-1 gap-1">
                                 <span className="font-bold">Contact:</span>
-                                <span className="text-gray-700">{profileDetails?.mobile_no}</span>
+                                <span className="dark:text-white text-gray-700">{profileDetails?.mobile_no}</span>
                             </li>
                             {/* <li className="flex flex-col py-1 gap-1">
                                 <span className="font-bold">Address:</span>
-                                <span className="text-gray-700">{profileDetails?.address}</span>
+                                <span className="dark:text-white text-gray-700">{profileDetails?.address}</span>
                             </li> */}
                         </ul>
                     </div>
@@ -146,16 +146,9 @@ function Profile() {
 
             <div className="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4">
                 <div className="w-full flex flex-col">
-
-
-                </div>
-
-            </div>
-            <div className="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4">
-                <div className="w-full flex flex-col">
-                    <div className="flex-1 bg-white rounded-lg  p-8">
-                        <h4 className="text-xl text-gray-900 font-bold">My Orders</h4>
-                        <ul className="mt-2 text-gray-700 grid grid-cols-3 ">
+                    <div className="flex-1 bg-white dark:bg-gray-900 rounded-lg  p-8">
+                        <h4 className="text-xl dark:text-white text-gray-900 font-bold">My Orders</h4>
+                        <ul className="mt-2 dark:text-white text-gray-700 grid grid-cols-3 ">
                             {
                                 orderDetails?.map((value, index) => (
                                     <li className="flex p-6 shadow" key={index}>
@@ -165,13 +158,13 @@ function Profile() {
 
                                         <div className="ml-4 flex flex-1 flex-col">
                                             <div>
-                                                <div className="flex justify-between text-base font-medium text-gray-900">
+                                                <div className="flex justify-between text-base font-medium dark:text-white text-gray-900">
                                                     <h3>
                                                         <a href={`product/` + value?.sku}>{value?.item?.name}</a>
                                                     </h3>
                                                     <p className="ml-4">Rs. {value?.price}</p>
                                                 </div>
-                                                <p className="mt-1 text-sm text-gray-500">Quantity: {value?.quantity}</p>
+                                                <p className="mt-1 text-sm dark:text-white text-gray-500">Quantity: {value?.quantity}</p>
                                             </div>
                                             <div className="flex flex-1 items-center mt-2 justify-end text-sm">
                                                 <p onClick={() => {

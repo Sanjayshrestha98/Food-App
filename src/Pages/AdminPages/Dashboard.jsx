@@ -98,19 +98,19 @@ function Dashboard() {
 
       <div className='grid gap-4 lg:grid-cols-4 grid-cols-2 mt-10'>
 
-        <div className='shadow p-3 py-10 flex flex-col items-center'>
+        <div className='dark:bg-gray-900 dark:shadow-gray-00 shadow p-3 py-10 flex flex-col items-center'>
           <label className='text-4xl mt-3 text-gray-500'>{totalUserCount}</label>
           <label className='font-semibold text-xl flex items-center gap-3'> Total Users</label>
         </div>
-        <div className='shadow p-3 py-10 flex  flex-col items-center'>
+        <div className='dark:bg-gray-900 dark:shadow-gray-00 shadow p-3 py-10 flex  flex-col items-center'>
           <label className='text-4xl mt-3 text-gray-500'>{totalProductCount}</label>
           <label className='font-semibold text-xl flex items-center gap-3'> Total Products</label>
         </div>
-        <div className='shadow p-3 py-10 flex  flex-col items-center'>
+        <div className='dark:bg-gray-900 dark:shadow-gray-00 shadow p-3 py-10 flex  flex-col items-center'>
           <label className='text-4xl mt-3 text-gray-500'>{totalCategoryCount}</label>
-          <label className='font-semibold text-xl flex items-center gap-3'> Total Category</label>
+          <label className='font-semibold text-xl flex items-center gap-3'> Total Categories</label>
         </div>
-        <div className='shadow p-3 py-10  flex flex-col items-center'>
+        <div className='dark:bg-gray-900 dark:shadow-gray-00 shadow p-3 py-10  flex flex-col items-center'>
           <label className='text-4xl mt-3 text-gray-500'>{totalOrderCount}</label>
           <label className='font-semibold text-xl flex items-center gap-3'> Total Orders</label>
         </div>

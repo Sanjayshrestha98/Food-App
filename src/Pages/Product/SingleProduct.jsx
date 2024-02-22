@@ -1,20 +1,23 @@
 import { Field, Form, Formik } from 'formik'
 import axios from '../../axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { FaHeart, FaShoppingCart, FaStar } from 'react-icons/fa'
 import { useParams } from 'react-router-dom'
 import Rating from 'react-rating'
+import { AuthContext } from '../../context/authContext'
 
 function SingleProduct() {
 
     const { id } = useParams()
-    console.log(id)
 
     const [productData, setProductData] = useState()
     // const [selectedVariantData, setSelectedVariantData] = useState()
     const [ratingData, setRatingData] = useState()
 
+    const { isAuthenticated } = useContext(AuthContext)
+
+    console.log('isAuthenticated', isAuthenticated)
     const getProductDetail = async () => {
         try {
             let result = await axios.get('/products/' + id)
@@ -105,14 +108,14 @@ function SingleProduct() {
 
     return (
         <div>
-            <div className="bg-white">
+            <div className="bg-white dark:bg-black">
                 <div className="pt-6">
                     <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
-                        <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+                        <div className="lg:col-span-2 lg:border-r lg:border-gray-200 dark:border-gray-700 lg:pr-8">
                             <div className='grid grid-cols-2 gap-2'>
                                 {
                                     productData?.images?.map((value, index) => (
-                                        <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg border" key={index}>
+                                        <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg border dark:border-gray-800" key={index}>
                                             <img src={`${import.meta.env.VITE_APP_BASE_URI}${value}`} alt="Prod Img" className="h-full w-full object-cover object-center" />
                                         </div>
                                     ))
@@ -123,10 +126,10 @@ function SingleProduct() {
                         <div className="mt-4 lg:row-span-3 lg:mt-0">
 
                             <div>
-                                <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl capitalize">{productData?.name}</h1>
+                                <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl capitalize">{productData?.name}</h1>
 
                             </div>
-                            <p className="text-xl tracking-tight mt-2 text-gray-900">Rs. {productData?.price}</p>
+                            <p className="text-xl tracking-tight mt-2 text-gray-900 dark:text-white">Rs. {productData?.price}</p>
 
                             <div className='flex items-center gap-3 my-3'>
                                 <Rating step={1} name="rating" readonly initialRating={productData?.rating} fullSymbol={<FaStar color='#ffe234' size={20} strokeWidth={2} stroke='black' />} emptySymbol={<FaStar color='white' size={20} strokeWidth={2} stroke='black' />} />
@@ -137,7 +140,9 @@ function SingleProduct() {
                             <div className='flex flex-wrap gap-3'>
                                 <button type="button"
                                     onClick={() => {
-                                        addToCart()
+                                        if (isAuthenticated) {
+                                            addToCart()
+                                        }else toast.error('Please Login First')
                                     }}
                                     className="mt-5 flex flex-1 items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 gap-3">
                                     Add to Cart <FaShoppingCart /></button>
@@ -149,7 +154,7 @@ function SingleProduct() {
 
                                 <div className="space-y-6 mt-2">
                                     {/* <p className="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee has you covered.</p> */}
-                                    <p className="text-base text-gray-900">{productData?.description}</p>
+                                    <p className="text-base text-gray-900 dark:text-white">{productData?.description}</p>
                                 </div>
                             </div>
 
@@ -157,7 +162,7 @@ function SingleProduct() {
 
                     </div>
                     <section className='max-w-7xl mx-auto p-4'>
-                        <h1 className='text-2xl font-semibold tracking-tight text-gray-900'>
+                        <h1 className='text-2xl font-semibold tracking-tight text-gray-900 dark:text-white'>
                             Comments
                         </h1>
 

@@ -72,7 +72,7 @@ export default function Home() {
 
 
     return (
-        <div className="bg-white">
+        <div className="bg-white dark:bg-black  dark:text-white">
 
             <div className="relative grid place-items-center w-full h-screen -mt-20 ">
                 <div className="absolute top-0 right-0 z-0 w-full h-full bg-contain bg-white">
@@ -107,15 +107,15 @@ export default function Home() {
             </div>
 
             {/* FEATURES */}
-            <div className="bg-white py-24 sm:py-32">
+            <div className="bg-white dark:bg-black  dark:text-white py-24 sm:py-32">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
                         {stats.map((stat) => (
                             <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
-                                <div className="order-first mx-auto font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                                <div className="order-first mx-auto font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
                                     <img src={`${stat.img}`} />
                                 </div>
-                                <label className=" mt-5 leading-7 text-gray-900 font-semibold text-2xl">{stat.name}</label>
+                                <label className=" mt-5 leading-7 text-gray-900 dark:text-white font-semibold text-2xl">{stat.name}</label>
                             </div>
                         ))}
                     </dl>
@@ -124,9 +124,9 @@ export default function Home() {
 
 
             {/* Product */}
-            <div className="bg-white">
+            <div className="bg-white dark:bg-black  dark:text-white">
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900">Recommended Items</h2>
+                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Recommended Items</h2>
 
                     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                         {productList?.map((product, index) => (
@@ -140,13 +140,13 @@ export default function Home() {
                                 </div>
                                 <div className="mt-4 flex justify-between">
                                     <div>
-                                        <h3 className="text-gray-700 capitalize">
+                                        <h3 className="text-gray-700 dark:text-white capitalize">
                                             <span aria-hidden="true" className="absolute inset-0" />
                                             {product.name}
                                         </h3>
                                         {/* <p className="mt-1 text-gray-500 capitalize">{product.variant[0].variant_type[0].color}</p> */}
                                     </div>
-                                    <p className="font-medium text-gray-900">Rs. {product.price}</p>
+                                    <p className="font-medium text-gray-900 dark:text-white">Rs. {product.price}</p>
                                 </div>
                             </Link>
                         ))}
@@ -157,12 +157,12 @@ export default function Home() {
             {/* TEstimonials */}
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 <SwiperSlide>
-                    <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8 my-20">
+                    <section className="relative isolate overflow-hidden  px-6 py-24 sm:py-32 lg:px-8 my-20">
                         <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
-                        <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+                        <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg]  shadow-xl dark:shadow-black shadow-indigo-600/10 ring-1 ring-indigo-50 dark:ring-gray-800 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
                         <div className="mx-auto max-w-2xl lg:max-w-4xl">
                             <figure className="mt-10">
-                                <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+                                <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900  dark:text-white sm:text-2xl sm:leading-9">
                                     <p>
                                         As a busy professional, I rely on this app to save me time and satisfy my cravings. The user-friendly interface makes ordering a breeze, and the delivery is always prompt. It's like having a personal chef at my fingertips!”
                                     </p>
@@ -174,11 +174,11 @@ export default function Home() {
                                         alt=""
                                     />
                                     <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-                                        <div className="font-semibold text-gray-900">Judith Black</div>
-                                        <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900">
+                                        <div className="font-semibold text-gray-900  dark:text-white">Judith Black</div>
+                                        <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900 dark:fill-white">
                                             <circle cx={1} cy={1} r={1} />
                                         </svg>
-                                        <div className="text-gray-600">CEO of Workcation</div>
+                                        <div className="text-gray-600 dark:text-white">CEO of Workcation</div>
                                     </div>
                                 </figcaption>
                             </figure>
@@ -186,12 +186,12 @@ export default function Home() {
                     </section>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8 my-20">
+                    <section className="relative isolate overflow-hidden  px-6 py-24 sm:py-32 lg:px-8 my-20">
                         <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
-                        <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+                        <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg]  shadow-xl dark:shadow-black shadow-indigo-600/10 ring-1 ring-indigo-50 dark:ring-gray-800 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
                         <div className="mx-auto max-w-2xl lg:max-w-4xl">
                             <figure className="mt-10">
-                                <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+                                <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900  dark:text-white sm:text-2xl sm:leading-9">
                                     <p>
                                         As a busy professional, I rely on this app to save me time and satisfy my cravings. The user-friendly interface makes ordering a breeze, and the delivery is always prompt. It's like having a personal chef at my fingertips!”
                                     </p>
@@ -203,11 +203,11 @@ export default function Home() {
                                         alt=""
                                     />
                                     <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-                                        <div className="font-semibold text-gray-900">Judith Black</div>
-                                        <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900">
+                                        <div className="font-semibold text-gray-900  dark:text-white">Judith Black</div>
+                                        <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900 dark:fill-white">
                                             <circle cx={1} cy={1} r={1} />
                                         </svg>
-                                        <div className="text-gray-600">CEO of Workcation</div>
+                                        <div className="text-gray-600 dark:text-white">CEO of Workcation</div>
                                     </div>
                                 </figcaption>
                             </figure>
@@ -215,12 +215,12 @@ export default function Home() {
                     </section>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8 my-20">
+                    <section className="relative isolate overflow-hidden  px-6 py-24 sm:py-32 lg:px-8 my-20">
                         <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
-                        <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+                        <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg]  shadow-xl dark:shadow-black shadow-indigo-600/10 ring-1 ring-indigo-50 dark:ring-gray-800 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
                         <div className="mx-auto max-w-2xl lg:max-w-4xl">
                             <figure className="mt-10">
-                                <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+                                <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900  dark:text-white sm:text-2xl sm:leading-9">
                                     <p>
                                         As a busy professional, I rely on this app to save me time and satisfy my cravings. The user-friendly interface makes ordering a breeze, and the delivery is always prompt. It's like having a personal chef at my fingertips!”
                                     </p>
@@ -232,11 +232,11 @@ export default function Home() {
                                         alt=""
                                     />
                                     <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-                                        <div className="font-semibold text-gray-900">Judith Black</div>
-                                        <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900">
+                                        <div className="font-semibold text-gray-900  dark:text-white">Judith Black</div>
+                                        <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900 dark:fill-white">
                                             <circle cx={1} cy={1} r={1} />
                                         </svg>
-                                        <div className="text-gray-600">CEO of Workcation</div>
+                                        <div className="text-gray-600 dark:text-white">CEO of Workcation</div>
                                     </div>
                                 </figcaption>
                             </figure>
@@ -253,10 +253,10 @@ export default function Home() {
                 <div className="flex flex-col lg:flex-row justify-between w-full items-center space-y-6 lg:space-y-0">
                     <div className=" sm:w-auto flex flex-col justify-start items-start w-full">
                         <div>
-                            <p className="text-3xl xl:text-4xl font-semibold leading-9 text-gray-800">Indulge in Exquisite Flavors,</p>
+                            <p className="text-3xl xl:text-4xl font-semibold leading-9 text-gray-800 dark:text-white">Indulge in Exquisite Flavors,</p>
                         </div>
                         <div className="mt-4 w-full">
-                            <p className="text-base leading-6 text-gray-600">Exclusive to Your Plate. Unmatched Quality, Unbeatable Price!</p>
+                            <p className="text-base leading-6 text-gray-600 dark:text-white">Exclusive to Your Plate. Unmatched Quality, Unbeatable Price!</p>
                         </div>
                         <div className="mt-16 w-full">
                             <button onClick={() => {

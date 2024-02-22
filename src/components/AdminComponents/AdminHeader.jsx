@@ -3,6 +3,7 @@ import { FaBars, FaBell, FaMoon, FaSun } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
 import { Link, useLocation } from 'react-router-dom'
 import { AuthContext } from '../../context/authContext'
+import Switcher from '../Switcher'
 
 const user = {
     name: 'Tom Cook',
@@ -43,7 +44,7 @@ export default function AdminHeader() {
     };
 
     return (
-        <div className={`min-h-full sticky top-0 h-20 z-50 shadow bg-white`}>
+        <div className={`min-h-full sticky top-0 h-20 z-50 shadow bg-white dark:bg-black  dark:text-white`}>
             <>
                 <div className="mx-auto w-full px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 items-center justify-between">
@@ -77,16 +78,7 @@ export default function AdminHeader() {
                                 </div> */}
                         </div>
                         <div className=" flex items-center">
-                            <button
-                                className='block rounded py-2 pl-3 pr-4 md:p-0'
-                                onClick={() => localStorage.theme === 'dark'}
-                            >
-                                {localStorage.getItem('theme') === 'dark' ? (
-                                    <FaSun className='text-yellow-200' />
-                                ) : (
-                                    <FaMoon />
-                                )}
-                            </button>
+                            <Switcher />
                             <div className="ml-4 flex items-center md:ml-6">
 
                                 <div className="relative ml-3 group">
@@ -103,13 +95,13 @@ export default function AdminHeader() {
                                             src="/images/avatar.jpg"
                                             alt="user photo"
                                         />)}
-                                    <div className='absolute bg-transparent shadow w-40 bg-white right-0 z-10 group-hover:block hidden min-w-max'>
+                                    <div className='absolute bg-transparent shadow w-40 bg-white dark:bg-gray-900 right-0 z-10 group-hover:block hidden min-w-max'>
                                         {userNavigation.map((item) => (
                                             <div key={item.name}>
                                                 <a
                                                     href={item.href}
                                                     className={
-                                                        'hover:bg-gray-100 block px-4 py-2 text-sm hover:text-gray-700'
+                                                        'hover:bg-gray-100 block px-4 py-2 text-sm  hover:text-gray-700'
                                                     }
                                                 >
                                                     {item.name}

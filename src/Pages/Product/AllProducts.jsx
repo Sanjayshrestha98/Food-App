@@ -13,7 +13,6 @@ function AllProducts() {
     const location = useLocation();
     const { category, search } = location.state || {};
 
-
     const [categoryData, setCategoryData] = useState([])
     const [productData, setProductData] = useState([])
 
@@ -71,7 +70,7 @@ function AllProducts() {
     }
 
     return (
-        <div className="bg-white">
+        <div className="bg-white dark:bg-black">
             <div>
                 {
                     showFilter &&
@@ -82,12 +81,12 @@ function AllProducts() {
                         <div className="fixed inset-0 z-50 flex" style={{
                             zIndex: "99999"
                         }}>
-                            <div className="relative p-5 ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+                            <div className="relative p-5 ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white dark:bg-black py-4 pb-12 shadow-xl">
                                 <div className="flex items-center justify-between mb-5">
-                                    <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                                    <h2 className="text-lg font-medium dark:text-white text-gray-900">Filters</h2>
                                     <button onClick={() => {
                                         setShowFilter(false)
-                                    }} type="button" className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400">
+                                    }} type="button" className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white dark:bg-gray-800 p-2 dark:text-white text-gray-400">
                                         <span className="sr-only">Close menu</span>
                                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -98,25 +97,25 @@ function AllProducts() {
                                 {/* <!-- Filters --> */}
                                 <div className="lg:hidden block">
                                     <h3 className="sr-only">Categories</h3>
-                                    <ul className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
+                                    <ul className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium dark:text-white text-gray-900">
                                         <li role='button' onClick={() => {
                                             setDateFilter(1)
-                                        }} className={`${dateFilter === 1 ? "bg-gray-50" : ""} p-2`}>
+                                        }} className={`${dateFilter === 1 ? "bg-gray-50 dark:bg-gray-800 " : ""} p-2`}>
                                             Oldest
                                         </li>
                                         <li onClick={() => {
                                             setDateFilter(-1)
-                                        }} role='button' className={`${dateFilter === -1 ? "bg-gray-50" : ""} p-2`} >
+                                        }} role='button' className={`${dateFilter === -1 ? "bg-gray-50 dark:bg-gray-800" : ""} p-2`} >
                                             Newest
                                         </li>
                                         <li role='button' onClick={() => {
                                             setPriceFilter(1)
-                                        }} className={`${priceFilter === 1 ? "bg-gray-50" : ""} p-2`}>
+                                        }} className={`${priceFilter === 1 ? "bg-gray-50 dark:bg-gray-800" : ""} p-2`}>
                                             Price: Low to High
                                         </li>
                                         <li role='button' onClick={() => {
                                             setPriceFilter(-1)
-                                        }} className={`${priceFilter === -1 ? "bg-gray-50" : ""} p-2`}>
+                                        }} className={`${priceFilter === -1 ? "bg-gray-50 dark:bg-gray-800" : ""} p-2`}>
                                             Price: High to Low
                                         </li>
                                     </ul>
@@ -128,7 +127,7 @@ function AllProducts() {
 
                 <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-10">
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 px-5">Products</h1>
+                        <h1 className="text-4xl font-bold tracking-tight dark:text-white text-gray-900 px-5 dark:bg">Products</h1>
                         <button className='lg:hidden block' onClick={() => {
                             setShowFilter(true)
                         }}><FaFilter /></button>
@@ -136,26 +135,26 @@ function AllProducts() {
 
 
 
-                    <ul role="list" className=" hidden lg:flex flex-wrap justify-end gap-3 border-b border-gray-200 p-4 text-sm font-medium text-gray-900">
+                    <ul role="list" className=" hidden lg:flex flex-wrap justify-end gap-3 border-b border-gray-200 p-4 text-sm font-medium dark:text-white text-gray-900">
                         <p className='p-2'>Sort By:</p>
                         <li role='button' onClick={() => {
                             setDateFilter(1)
-                        }} className={`${dateFilter === 1 ? "bg-gray-50" : ""} p-2`}>
+                        }} className={`${dateFilter === 1 ? "bg-gray-50 dark:bg-gray-800" : ""} p-2`}>
                             Oldest
                         </li>
                         <li onClick={() => {
                             setDateFilter(-1)
-                        }} role='button' className={`${dateFilter === -1 ? "bg-gray-50" : ""} p-2`} >
+                        }} role='button' className={`${dateFilter === -1 ? "bg-gray-50 dark:bg-gray-800" : ""} p-2`} >
                             Newest
                         </li>
                         <li role='button' onClick={() => {
                             setPriceFilter(1)
-                        }} className={`${priceFilter === 1 ? "bg-gray-50" : ""} p-2`}>
+                        }} className={`${priceFilter === 1 ? "bg-gray-50 dark:bg-gray-800" : ""} p-2`}>
                             Price: Low to High
                         </li>
                         <li role='button' onClick={() => {
                             setPriceFilter(-1)
-                        }} className={`${priceFilter === -1 ? "bg-gray-50" : ""} p-2`}>
+                        }} className={`${priceFilter === -1 ? "bg-gray-50 dark:bg-gray-800" : ""} p-2`}>
                             Price: High to Low
                         </li>
                     </ul>
@@ -185,12 +184,12 @@ function AllProducts() {
                                     </div>
                                     <div className="mt-4 flex justify-between">
                                         <div>
-                                            <h3 className="text-sm text-gray-700 capitalize">
+                                            <h3 className="text-sm dark:text-white text-gray-700 capitalize">
                                                 <span aria-hidden="true" className="absolute inset-0" />
                                                 {product.name}
                                             </h3>
                                         </div>
-                                        <p className="text-sm font-medium text-gray-900">Rs. {product.price}</p>
+                                        <p className="text-sm font-medium dark:text-white text-gray-900">Rs. {product.price}</p>
                                     </div>
                                 </Link>
                             ))}

@@ -5,7 +5,6 @@ import Login from './Pages/Login/Login';
 import Page404 from './Pages/404/Page404';
 import Header from './components/Header';
 import Signup from './Pages/Signup/Signup';
-import Contact from './Pages/Contact/Contact';
 import { Toaster } from 'react-hot-toast';
 import AuthContextProvider from './context/authContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -25,151 +24,109 @@ import About from './Pages/AboutUs/About';
 import Orders from './Pages/AdminPages/Orders/Orders';
 import AdminHeader from './components/AdminComponents/AdminHeader';
 import AdminContact from './Pages/AdminPages/Contact/AdminContact';
-import ThemeContextProvider from './context/themeContext';
-import { useEffect } from 'react';
 
 function App() {
 
   const location = useLocation()
 
-  console.log(location.pathname.includes('dashboard'))
-
-  //     < !--Dark mode not enabled-- >
-  // <html>
-  //   <body>
-  //     <!-- Will be white -->
-  //     <div class="bg-white dark:bg-black">
-  //       <!-- ...your content... -->
-  //     </div>
-  //   </body>
-  // </html>
-
-  // <!--Dark mode enabled-- >
-  //     <html class="dark">
-  //       <body>
-  //         <!-- Will be black -->
-  //         <div class="bg-white dark:bg-black">
-  //           <!-- ...your content... -->
-  //         </div>
-  //       </body>
-  //     </html>
-
-    // On page load or when changing themes
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
-    // // Whenever the user explicitly chooses light mode
-    // localStorage.theme = 'light';
-
-    // // Whenever the user explicitly chooses dark mode
-    // localStorage.theme = 'dark';
-
-    // Whenever the user explicitly chooses to respect the OS preference
-    localStorage.removeItem('theme');
-
   return (
-    <div>
+    <div className='bg-white dark:bg-black dark:text-white'>
       <AuthContextProvider>
-        <ThemeContextProvider>
-          <Toaster />
-          <div className='min-h-screen flex flex-col'>
-            <Header />
-            <AdminHeader />
-            <div className={`flex-1  ${location.pathname.includes('dashboard') ? "flex" : ""}`}>
-              <AdminSidebar />
-              <Routes>
-                <Route index element={<Home />} />
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                {/* <Route path="/contact" element={<Contact />} /> */}
-                <Route path="/about" element={<About />} />
+        <Toaster />
+        <div className='min-h-screen flex flex-col'>
+          <Header />
+          <AdminHeader />
+          <div className={`flex-1  ${location.pathname.includes('dashboard') ? "flex" : ""}`}>
+            <AdminSidebar />
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              {/* <Route path="/contact" element={<Contact />} /> */}
+              <Route path="/about" element={<About />} />
 
-                {/* <Route path="/cartpage" element={<Cartpage />} /> */}
-
-
-                <Route
-                  path="/cartpage"
-                  element={
-                    <ProtectedRoute>
-                      <Cartpage />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/profile"
-                  element={
-                    <ProtectedRoute>
-                      <Profile />
-                    </ProtectedRoute>
-                  }
-                />
-
-                <Route path="/wishlist" element={<Wishlist />} />
-                <Route path="/product" element={<AllProducts />} />
-                <Route path="/product/:id" element={<SingleProduct />} />
-
-                {/* 404 Page */}
-                <Route path="*" element={<Page404 />} />
+              {/* <Route path="/cartpage" element={<Cartpage />} /> */}
 
 
-                {/* Admin Pages */}
-                <Route
-                  path="/dashboard"
-                  element={
-                    <ProtectedAdminRoute>
-                      <Dashboard />
-                    </ProtectedAdminRoute>
-                  }
-                />
-                <Route
-                  path="/dashboard/products"
-                  element={
-                    <ProtectedAdminRoute>
-                      <Product />
-                    </ProtectedAdminRoute>
-                  }
-                />
-                <Route
-                  path="/dashboard/category"
-                  element={
-                    <ProtectedAdminRoute>
-                      <Category />
-                    </ProtectedAdminRoute>
-                  }
-                />
-                <Route
-                  path="/dashboard/users"
-                  element={
-                    <ProtectedAdminRoute>
-                      <User />
-                    </ProtectedAdminRoute>
-                  }
-                />
-                <Route
-                  path="/dashboard/orders"
-                  element={
-                    <ProtectedAdminRoute>
-                      <Orders />
-                    </ProtectedAdminRoute>
-                  }
-                />
-                <Route
-                  path="/dashboard/contact"
-                  element={
-                    <ProtectedAdminRoute>
-                      <AdminContact />
-                    </ProtectedAdminRoute>
-                  }
-                />
-              </Routes>
-            </div>
-            <Footer />
+              <Route
+                path="/cartpage"
+                element={
+                  <ProtectedRoute>
+                    <Cartpage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/product" element={<AllProducts />} />
+              <Route path="/product/:id" element={<SingleProduct />} />
+
+              {/* 404 Page */}
+              <Route path="*" element={<Page404 />} />
+
+
+              {/* Admin Pages */}
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedAdminRoute>
+                    <Dashboard />
+                  </ProtectedAdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/products"
+                element={
+                  <ProtectedAdminRoute>
+                    <Product />
+                  </ProtectedAdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/category"
+                element={
+                  <ProtectedAdminRoute>
+                    <Category />
+                  </ProtectedAdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/users"
+                element={
+                  <ProtectedAdminRoute>
+                    <User />
+                  </ProtectedAdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/orders"
+                element={
+                  <ProtectedAdminRoute>
+                    <Orders />
+                  </ProtectedAdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/contact"
+                element={
+                  <ProtectedAdminRoute>
+                    <AdminContact />
+                  </ProtectedAdminRoute>
+                }
+              />
+            </Routes>
           </div>
-        </ThemeContextProvider>
+          <Footer />
+        </div>
       </AuthContextProvider>
     </div>
   );

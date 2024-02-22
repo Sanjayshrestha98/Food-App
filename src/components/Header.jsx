@@ -2,13 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/authContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from '../axios';
-import { MdArrowBackIos, MdDashboard, MdOutlineMenu, MdOutlineShoppingBag, MdShoppingCart, MdShoppingCartCheckout } from 'react-icons/md'
-import { GoBell, GoHeart, GoHeartFill, GoSearch } from 'react-icons/go'
-import { FaBars, FaShoppingCart, FaThumbsUp } from 'react-icons/fa'
-import SideNav from './SideNav';
-import { FaHamburger } from 'react-icons/fa'
-import { MdClose } from 'react-icons/md'
+import { MdClose, MdDashboard, MdOutlineMenu, MdOutlineShoppingBag, MdShoppingCart } from 'react-icons/md'
+import { FaBars } from 'react-icons/fa'
 import toast from 'react-hot-toast';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import useDarkTheme from '../hooks/useDarkTheme';
+import Switcher from './Switcher';
 
 
 const Header = () => {
@@ -21,6 +20,7 @@ const Header = () => {
     const [notificationModal, setNotificationModal] = useState(false);
     const [sideNav, setSideNav] = useState(false);
     const [categoryData, setCategoryData] = useState([])
+
 
     let isAuthenticated = authUser?.isAuthenticated;
 
@@ -114,10 +114,10 @@ const Header = () => {
 
     return (
         <div
-            className={`transition ease-in z-30 sticky top-0 duration-300  ${location.pathname === '/login' && 'hidden'} ${location.pathname === '/signup' && 'hidden'} ${location.pathname.includes('dashboard') && 'hidden'}`}
+            className={`transition  ease-in z-30 sticky top-0 duration-300  ${location.pathname === '/login' && 'hidden'} ${location.pathname === '/signup' && 'hidden'} ${location.pathname.includes('dashboard') && 'hidden'}`}
             onClick={handelNotification}
         >
-            <header className={` inset-x-0 top-0 z-50 bg-white`}>
+            <header className={` inset-x-0 top-0 z-50 bg-white dark:bg-black dark:text-white`}>
                 <nav className="flex items-center justify-between px-6 py-4 lg:px-8 border-b" aria-label="Global">
 
                     <div className="flex lg:flex-1">
@@ -139,7 +139,7 @@ const Header = () => {
                                                     item.children.map((value, index) => (
                                                         <li key={index} onClick={() => {
                                                             navigate('/product', { state: { category: value._id } });
-                                                        }} role='button' className='p-2 border hover:bg-gray-50 bg-white'>{value.name}</li>
+                                                        }} role='button' className='p-2 border hover:bg-gray-50 bg-white dark:bg-black  dark:text-white'>{value.name}</li>
                                                     ))}
                                             </ul>
 
@@ -171,7 +171,7 @@ const Header = () => {
                     </div>
 
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-10">
-                        <div className='border flex '>
+                        <div className='border dark:border-transparent flex '>
                             <form onSubmit={(e) => {
                                 e.preventDefault()
                                 searchFunction()
@@ -183,15 +183,19 @@ const Header = () => {
                             </form>
                         </div>
                         <div className="flex items-center">
+                            <Switcher />
+
                             {isAuthenticated ? (
-                                <div className="flex items-center">
+                                <div className="flex items-center ml-4">
 
                                     <div className="flex items-center mr-8 gap-4">
                                         {/* <div className=" transform cursor-pointer hover:scale-110">
                                             <Link to={"/wishlist"}>
                                                 <GoHeartFill size={21} strokeWidth={2} fill='white ' />
                                             </Link>
+                                            
                                         </div> */}
+
 
                                         <div className=" transform cursor-pointer hover:scale-110">
                                             <Link to={"/cartpage"}>
@@ -287,10 +291,10 @@ const Header = () => {
                                     </div>
                                 </div>
                             ) : (
-                                <div className="flex gap-2 mr-4  ">
+                                <div className="flex gap-2 mr-4  ml-2">
                                     <div className="cursor-pointer ">
                                         <Link to={"/login"}>
-                                            <button className="px-3 py-2 font-bold  hover:bg-gray-200 duration-150 hover:scale-105 rounded">
+                                            <button className="px-3 py-2 font-bold  hover:bg-gray-200 dark:hover:text-black  duration-150 hover:scale-105 rounded">
                                                 Login
                                             </button>
                                         </Link>
@@ -298,7 +302,7 @@ const Header = () => {
 
                                     <div className="  cursor-pointer ">
                                         <Link to={"/signup"}>
-                                            <button className="px-4 py-2  hover:bg-gray-200 duration-150 hover:scale-105 rounded">
+                                            <button className="px-4 py-2  hover:bg-gray-200 dark:hover:text-black duration-150 hover:scale-105 rounded">
                                                 Sign Up
                                             </button>
                                         </Link>
@@ -338,7 +342,7 @@ const Header = () => {
                     mobileMenuOpen &&
                     <div className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                         <div className="fixed inset-0 z-50" />
-                        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-black dark:text-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                             <div className="flex items-center justify-between">
                                 <a href="#" className="-m-1.5 p-1.5">
                                     <span className="sr-only">Your Company</span>
@@ -366,7 +370,7 @@ const Header = () => {
                                             <a
                                                 key={index}
                                                 href={item.href}
-                                                className="-mx-3 block rounded-lg px-3 py-2 text-base font-bold leading-7 text-gray-900 hover:bg-gray-50"
+                                                className="-mx-3 block rounded-lg px-3 py-2 text-base font-bold leading-7  hover:bg-gray-50 dark:hover:text-black"
                                             >
                                                 {item.name}
                                             </a>
@@ -374,15 +378,10 @@ const Header = () => {
                                     </div>
 
                                     <div className="py-2 flex items-center">
-                                        {isAuthenticated ? (
-                                            <div className="flex items-center">
-                                                <div className="flex items-center mr-8 gap-4">
-                                                    {/* <div className=" transform cursor-pointer hover:scale-110">
-                                                        <Link to={"/wishlist"}>
-                                                            <GoHeartFill size={23} strokeWidth={0.5} />
-                                                        </Link>
-                                                    </div> */}
 
+                                        {isAuthenticated ? (
+                                            <div className="flex items-center ml-4">
+                                                <div className="flex items-center mr-4 gap-4">
                                                     <div className=" transform cursor-pointer hover:scale-110">
                                                         <Link to={"/cartpage"}>
                                                             <MdOutlineShoppingBag size={23} />
@@ -468,7 +467,7 @@ const Header = () => {
                                             <div className="py-6 w-full">
                                                 <a
                                                     href={"/signup"}
-                                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-bold leading-7 text-gray-900 hover:bg-gray-50"
+                                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-bold leading-7 text-gray-900 dark:text-white dark:hover:text-black hover:bg-gray-50"
                                                 >
                                                     Sign Up
                                                 </a>
@@ -477,10 +476,13 @@ const Header = () => {
                                                     onClick={() => {
                                                         setMobileMenuOpen(false)
                                                     }}
-                                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-bold leading-7 text-gray-900 hover:bg-gray-50"
+                                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-bold leading-7 text-gray-900 dark:text-white dark:hover:text-black hover:bg-gray-50"
                                                 >
                                                     Log in
                                                 </Link>
+
+
+
                                             </div>
                                         )}
 

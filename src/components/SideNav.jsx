@@ -9,7 +9,7 @@ function SideNav({ setSideNav, sideNav }) {
         z-50 w-full h-screen flex top-0 overflow-y-auto overflow-x-hidden fixed sticky-0" id="chec-div`}
       >
         <div className="w-full absolute z-50 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700">
-          <div className="w-80 z-10 bg-white h-screen overflow-y-auto absolute left-0 ">
+          <div className="w-80 z-10 bg-white dark:bg-black  dark:text-white h-screen overflow-y-auto absolute left-0 ">
             <div className="flex items-center justify-between py-3 px-4">
               <Link to="/">
                 <img src="/logowithLabel.png" className="h-20 -mb-4" alt="logo" />
@@ -26,10 +26,9 @@ function SideNav({ setSideNav, sideNav }) {
               </button>
             </div>
 
-            {/* NOTIFICATION FEED */}
             <div className="mt-5">
               <Link className="cursor-pointer" to={"/"}>
-                <div className="w-full py-3 px-4 bg-white rounded flex items-center">
+                <div className="w-full py-3 px-4 bg-white dark:bg-black  dark:text-white rounded flex items-center">
                   <div className="pl-3">
                     <label className="font-semibold cursor-pointer">Home</label>
                   </div>
@@ -37,7 +36,7 @@ function SideNav({ setSideNav, sideNav }) {
               </Link>
 
               <Link className="cursor-pointer" to={"/"}>
-                <div className="w-full py-3 px-4 bg-white rounded flex items-center">
+                <div className="w-full py-3 px-4 bg-white dark:bg-black  dark:text-white rounded flex items-center">
                   <div className="pl-3">
                     <label className="font-semibold cursor-pointer">
                       Categories

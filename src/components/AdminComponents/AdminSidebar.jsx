@@ -38,7 +38,7 @@ export default function AdminSidebar() {
   };
 
   return (
-    <div className={`fixed z-50 md:z-0 md:sticky items-start md:bg-[#151036] max-w-[200px] w-10 h-10 md:h-screen md:w-full top-5 md:top-0 ${open ? 'w-52 bg-[#151036] h-screen min-h-full overflow-auto !top-0' : ' h-10 '}`}>
+    <div className={`fixed z-50 md:z-0 md:sticky items-start md:bg-[#151036] dark:bg-gray-900 max-w-[200px] w-10 h-10 md:h-screen md:w-full top-5 md:top-0 ${open ? 'w-52 bg-[#151036] h-screen min-h-full overflow-auto !top-0' : ' h-10 '}`}>
       <>
         <div className="mx-auto max-w-7xl  ">
           <div className="flex flex-col h-full  justify-between">
