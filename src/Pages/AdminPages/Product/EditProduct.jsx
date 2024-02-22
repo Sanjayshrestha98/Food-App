@@ -120,13 +120,13 @@ function EditProduct({ modalIsOpen, closeModal, getRoute, productData }) {
       <h1 className="text-4xl font-bold tracking-tight text-gray-900">Edit Product</h1>
 
       <div className='mt-4'>
-        {/* [{"sku": "lg-red","stock": 10,"variant_type": [{"size": "lg","color": "red"}],"price": 100}] */}
+        {/* [{"sku": "lg-red","calorie_count": 10,"variant_type": [{"size": "lg","color": "red"}],"price": 100}] */}
         <Formik
           initialValues={{
-            product_name: productData.product_name,
+            name: productData.name,
             category: productData.category._id,
             description: productData.description,
-            stock: productData.stock,
+            calorie_count: productData.calorie_count,
             price: productData.price,
             // variant: [{
             //   sku: "",
@@ -145,16 +145,16 @@ function EditProduct({ modalIsOpen, closeModal, getRoute, productData }) {
               <div className='grid grid-cols-2 gap-3'>
                 <div>
                   <label
-                    id="product_name"
+                    id="name"
                     className="block w-full text-sm font-medium leading-6 text-gray-900"
                   >
                     Name
                   </label>
                   <Field
                     required
-                    name="product_name"
-                    value={props.values.product_name}
-                    aria-labelledby="product_name"
+                    name="name"
+                    value={props.values.name}
+                    aria-labelledby="name"
                     className="block mt-2 w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -204,15 +204,15 @@ function EditProduct({ modalIsOpen, closeModal, getRoute, productData }) {
                 </div>
                 <div>
                   <label
-                    id="stock"
+                    id="calorie_count"
                     className="block w-full text-sm font-medium leading-6 text-gray-900"
                   >
-                    Stock
+                    Calorie Count
                   </label>
                   <Field
                     type="number"
                     className="block mt-2 w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
-                    name={`stock`} />
+                    name={`calorie_count`} />
 
                 </div>
                 <div>
@@ -318,15 +318,15 @@ function EditProduct({ modalIsOpen, closeModal, getRoute, productData }) {
                               </div>
                               <div>
                                 <label
-                                  id="stock"
+                                  id="calorie_count"
                                   className="block w-full text-sm font-medium leading-6 text-gray-900"
                                 >
-                                  Stock
+                                  calorie_count
                                 </label>
                                 <Field
                                   type="number"
                                   className="block mt-2 w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
-                                  name={`variant.${index}.stock`} />
+                                  name={`variant.${index}.calorie_count`} />
 
                               </div>
                               <div>
@@ -403,7 +403,7 @@ function EditProduct({ modalIsOpen, closeModal, getRoute, productData }) {
                                 type="button"
                                 onClick={() => arrayHelpers.insert(index + 1, {
                                   sku: "",
-                                  stock: "",
+                                  calorie_count: "",
                                   price: "",
                                   variant_type: [{
                                     size: "",

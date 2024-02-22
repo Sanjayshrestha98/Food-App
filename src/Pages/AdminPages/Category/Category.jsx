@@ -124,7 +124,7 @@ function Category() {
             <tr className='opacity-75'>
               <th className='p-3'>Name</th>
               <th className='p-3'>Created Date</th>
-              <th className='p-3'>Image</th>
+              {/* <th className='p-3'>Image</th> */}
               <th className='p-3'>Actions</th>
             </tr>
           </thead>
@@ -139,7 +139,7 @@ function Category() {
                   <tr key={index} className='border-b'>
                     <td className='p-3'>{value?.name}</td>
                     <td className='p-3'>{Date(value?.createdAt)}</td>
-                    <td className='p-3'>
+                    {/* <td className='p-3'>
                       {
                         value?.image ?
 
@@ -148,8 +148,7 @@ function Category() {
                           :
                           <label className='error'>No Image</label>
                       }
-
-                    </td>
+                    </td> */}
                     <td className='p-3 flex gap-2 flex-wrap max-w-fit'>
                       <button className='bg-red-700 text-white p-2 rounded' onClick={() => {
                         removeItem(value._id)
@@ -157,7 +156,7 @@ function Category() {
                       <button onClick={() => {
                         setSelectedCategoryData(value)
                         openEditModal()
-                      }} className='bg-gray-700 text-white p-2 rounded'>
+                      }} className='bg-blue-700 text-white p-2 rounded'>
                         <FaEdit />
                       </button>
                     </td>

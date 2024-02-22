@@ -126,8 +126,8 @@ function Cartpage() {
                                             <div className="ml-4 flex flex-1 flex-col">
                                                 <div>
                                                     <div className="flex justify-between text-base font-medium text-gray-900">
-                                                        <h3 className='capitalize'>
-                                                            {value?.item?.product_name}
+                                                        <h3 className=' text-xl capitalize'>
+                                                            {value?.item?.name}
                                                         </h3>
                                                         <div className=" flex items-center">
                                                             <div className=" rounded-sm flex gap-3 items-center bg-white">
@@ -192,7 +192,7 @@ function Cartpage() {
                                 </div>
                                 <button onClick={() => {
                                     openAddModal()
-                                }} className="bg-gray-500 mt-4 py-3 px-4 rounded-sm text-white text-center hover:bg-gray-600 transition duration-200 w-full inline-block" href="#">Checkout</button>
+                                }} className="bg-green-500 mt-4 py-3 px-4 rounded-sm text-white text-center hover:bg-green-600 transition duration-200 w-full inline-block">Checkout</button>
                             </div>
                         </div>
                     }

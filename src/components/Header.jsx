@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/authContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from '../axios';
-import { MdArrowBackIos, MdOutlineMenu, MdOutlineShoppingBag, MdShoppingCartCheckout } from 'react-icons/md'
+import { MdArrowBackIos, MdDashboard, MdOutlineMenu, MdOutlineShoppingBag, MdShoppingCart, MdShoppingCartCheckout } from 'react-icons/md'
 import { GoBell, GoHeart, GoHeartFill, GoSearch } from 'react-icons/go'
-import { FaBars, FaThumbsUp } from 'react-icons/fa'
+import { FaBars, FaShoppingCart, FaThumbsUp } from 'react-icons/fa'
 import SideNav from './SideNav';
 import { FaHamburger } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
 import toast from 'react-hot-toast';
+
 
 const Header = () => {
     const authUser = useContext(AuthContext);
@@ -23,6 +24,7 @@ const Header = () => {
 
     let isAuthenticated = authUser?.isAuthenticated;
 
+    console.log('authUser', authUser.userDetails)
     const getAllCategory = async () => {
         try {
             let result = await axios.get('/category', {
@@ -53,7 +55,7 @@ const Header = () => {
         //     children: categoryData ? categoryData : []
         // },
         { name: 'Menu', href: '/product' },
-        { name: 'Offers', href: '/about' },
+        { name: 'About Us', href: '/about' },
         // { name: 'Contact', href: '/contact' },
     ]
 
@@ -150,7 +152,7 @@ const Header = () => {
                         </div>
                     </div>
                     <a href="/" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Jojolapa</span>
+                        <span className="sr-only">Future Flavour</span>
                         <img
                             className="h-8 w-auto"
                             src="/logo.png"
@@ -176,8 +178,8 @@ const Header = () => {
                             }}>
                                 <input placeholder='Search Product' type='search' onChange={(e) => {
                                     setKeyword(e.target.value)
-                                }} className='border rounded-l border-gray-400 p-2 text-sm' />
-                                <button type='submit' className='bg-gray-800 text-white text-sm p-2 rounded-r'>Search</button>
+                                }} className=' rounded-l border-gray-400 p-2 text-sm' />
+                                <button type='submit' className='bg-green-800 text-white text-sm p-2 rounded-r'>Search</button>
                             </form>
                         </div>
                         <div className="flex items-center">
@@ -185,15 +187,15 @@ const Header = () => {
                                 <div className="flex items-center">
 
                                     <div className="flex items-center mr-8 gap-4">
-                                        <div className=" transform cursor-pointer hover:scale-110">
+                                        {/* <div className=" transform cursor-pointer hover:scale-110">
                                             <Link to={"/wishlist"}>
-                                                <GoHeartFill size={23} strokeWidth={0.5} />
+                                                <GoHeartFill size={21} strokeWidth={2} fill='white ' />
                                             </Link>
-                                        </div>
+                                        </div> */}
 
                                         <div className=" transform cursor-pointer hover:scale-110">
                                             <Link to={"/cartpage"}>
-                                                <MdShoppingCartCheckout size={23} />
+                                                <MdShoppingCart size={23} />
 
                                             </Link>
                                         </div>
@@ -249,6 +251,17 @@ const Header = () => {
                                                         </div>
                                                     </li>
                                                 </Link>
+                                                {
+                                                    authUser.userDetails.role === 'admin' &&
+                                                    < Link to={"/dashboard"}>
+                                                        <li className="cursor-pointer text-gray-600  leading-3 tracking-normal py-2 hover:text-gray-700 focus:text-gray-700 focus:outline-none">
+                                                            <div className="flex items-center">
+                                                                <MdDashboard />
+                                                                <span className="ml-3">Dashboard</span>
+                                                            </div>
+                                                        </li>
+                                                    </Link>
+                                                }
                                                 <li
                                                     onClick={() => logout()}
                                                     className="cursor-pointer text-gray-600  leading-3 tracking-normal mt-2 py-2 hover:text-gray-700 focus:text-gray-700 focus:outline-none flex items-center"
@@ -364,11 +377,11 @@ const Header = () => {
                                         {isAuthenticated ? (
                                             <div className="flex items-center">
                                                 <div className="flex items-center mr-8 gap-4">
-                                                    <div className=" transform cursor-pointer hover:scale-110">
+                                                    {/* <div className=" transform cursor-pointer hover:scale-110">
                                                         <Link to={"/wishlist"}>
                                                             <GoHeartFill size={23} strokeWidth={0.5} />
                                                         </Link>
-                                                    </div>
+                                                    </div> */}
 
                                                     <div className=" transform cursor-pointer hover:scale-110">
                                                         <Link to={"/cartpage"}>
@@ -481,7 +494,7 @@ const Header = () => {
                 }
             </header>
 
-        </div>
+        </div >
     );
 }
 

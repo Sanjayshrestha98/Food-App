@@ -11,19 +11,19 @@ function EditCategoryModal({ modalIsOpen, closeModal, getRoute, categoryData }) 
   const editCategory = async (values, actions) => {
     try {
 
-      let formdata = new FormData
+      // let formdata = new FormData
 
-      if (image) {
-        formdata.append('image', image)
-      }
-
-
-      for (let value in values) {
-        formdata.append(value, values[value])
-      }
+      // if (image) {
+      //   formdata.append('image', image)
+      // }
 
 
-      let result = await axios.put('/category/' + categoryData?._id, formdata)
+      // for (let value in values) {
+      //   formdata.append(value, values[value])
+      // }
+
+
+      let result = await axios.put('/category/' + categoryData?._id, values)
 
       if (result.data.success) {
         toast.success('Category Edited Successfully')
@@ -76,7 +76,7 @@ function EditCategoryModal({ modalIsOpen, closeModal, getRoute, categoryData }) 
                 />
               </div>
 
-              <div className='mt-4'>
+              {/* <div className='mt-4'>
                 <label
                   id="image"
                   className="block w-full text-sm font-medium leading-6 text-gray-900"
@@ -107,12 +107,12 @@ function EditCategoryModal({ modalIsOpen, closeModal, getRoute, categoryData }) 
                     />
                   </div>
                 }
-              </div>
+              </div> */}
 
               <div className="mt-8 flex gap-4">
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-gray-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+                  className="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
                 >
                   Edit
                 </button>

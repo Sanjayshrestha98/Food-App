@@ -127,7 +127,7 @@ function Product() {
               <th className='p-3'>Image</th>
               <th className='p-3'>Name</th>
               <th className='p-3'>SKU</th>
-              <th className='p-3'>Stock</th>
+              <th className='p-3'>Calorie Count</th>
               <th className='p-3'>Category</th>
               <th className='p-3'>Price</th>
               <th className='p-3'>Actions</th>
@@ -155,9 +155,9 @@ function Product() {
                       }
 
                     </td>
-                    <td className='p-3'>{value?.product_name}</td>
-                    <td className='p-3'>{value?.product_sku}</td>
-                    <td className='p-3'>{value?.stock}</td>
+                    <td className='p-3'>{value?.name}</td>
+                    <td className='p-3'>{value?.sku}</td>
+                    <td className='p-3'>{value?.calorie_count}</td>
                     <td className='p-3'>{value?.category?.name}</td>
                     <td className='p-3'>Rs. {value?.price}</td>
                     <td className='p-3 flex gap-2 flex-wrap max-w-fit'>
@@ -167,7 +167,7 @@ function Product() {
                       <button onClick={() => {
                         setSelectedProductData(value)
                         openEditModal()
-                      }} className='bg-gray-700 text-white p-2 rounded'>
+                      }} className='bg-blue-700 text-white p-2 rounded'>
                         <FaEdit />
                       </button>
                     </td>

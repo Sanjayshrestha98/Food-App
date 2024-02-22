@@ -175,7 +175,7 @@ function AllProducts() {
 
                         <div className="my-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                             {productData.map((product, index) => (
-                                <Link to={`/product/${product.product_sku}`} key={index} className="group relative" role='button'>
+                                <Link to={`/product/${product.sku}`} key={index} className="group relative" role='button'>
                                     <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                                         <img
                                             src={`${import.meta.env.VITE_APP_BASE_URI}${product.images[0]}`}
@@ -187,7 +187,7 @@ function AllProducts() {
                                         <div>
                                             <h3 className="text-sm text-gray-700 capitalize">
                                                 <span aria-hidden="true" className="absolute inset-0" />
-                                                {product.product_name}
+                                                {product.name}
                                             </h3>
                                         </div>
                                         <p className="text-sm font-medium text-gray-900">Rs. {product.price}</p>

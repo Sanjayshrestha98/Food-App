@@ -45,7 +45,7 @@ function EditUser({ modalIsOpen, closeModal, getRoute, profileDetails }) {
             ariaHideApp={false}
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
-            contentLabel="Edit Category Modal"
+            contentLabel="Edit User Modal"
             overlayClassName="Overlay"
             className="Modal rounded-md p-5 md:w-1/4 max-h-screen overflow-auto"
         >

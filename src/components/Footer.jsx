@@ -13,13 +13,13 @@ function Footer() {
                             <a href="/about" className="hover:underline me-4 md:me-6">About</a>
                         </li>
 
-                        <li>
+                        {/* <li>
                             <a href="/contact" className="hover:underline">Contact</a>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
-                <span className="block text-sm text-gray-500 ">© <a href="/" className="hover:underline">Jojolapa</a>. Kathmandu, Nepal.</span>
+                <span className="block text-sm text-gray-500 ">© <a href="/" className="hover:underline">Future Flavour</a>. Kathmandu, Nepal.</span>
             </div>
         </footer>
 

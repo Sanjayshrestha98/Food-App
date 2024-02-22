@@ -147,7 +147,7 @@ function Orders() {
                     setKeyword(e.target.value)
                     setCurrentOrderPage(1)
                 }} />
-                <input className='border p-2' type='number' placeholder='Search By Card #' onChange={(e) => {
+                <input className='border p-2' type='number' placeholder='Search By Cart #' onChange={(e) => {
                     setCartKeyword(e.target.value)
                     setCurrentOrderPage(1)
                 }} />
@@ -183,7 +183,7 @@ function Orders() {
                                         <td className='p-3'>{value?.cart?.user_id?.contact}</td>
                                         <td className='p-3'>{value?.cart?.user_id?.email}</td>
                                         <td className='p-3'>{value?.cart?.cart_no}</td>
-                                        <td className='p-3'>{value?.item?.product_name}</td>
+                                        <td className='p-3'>{value?.item?.name}</td>
                                         <td className='p-3'>{value?.quantity}</td>
                                         <td className='p-3'>{value?.status}</td>
                                         <td className='p-3'>Rs. {value?.cart?.grand_total}</td>

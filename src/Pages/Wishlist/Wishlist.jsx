@@ -73,8 +73,8 @@ function Wishlist() {
                                                     <div className="ml-4 flex flex-1 flex-col">
                                                         <div>
                                                             <div className="flex justify-between text-base font-medium text-gray-900 capitalize">
-                                                                <h3 > 
-                                                                    <a href={`product/` + value?.product?.product_sku}>{value?.product?.product_name}</a>
+                                                                <h3 >
+                                                                    <a href={`product/` + value?.product?.sku}>{value?.product?.name}</a>
                                                                 </h3>
                                                             </div>
                                                             <p className="">Rs. {value?.product.price}</p>

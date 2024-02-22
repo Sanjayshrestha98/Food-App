@@ -12,15 +12,15 @@ function AddCatgeoryModal({ modalIsOpen, closeModal, getRoute }) {
     const addCategory = async (values, actions) => {
         try {
 
-            let formdata = new FormData
+            // let formdata = new FormData
 
-            formdata.append('image', image)
+            // formdata.append('image', image)
 
-            for (let value in values) {
-                formdata.append(value, values[value])
-            }
+            // for (let value in values) {
+            //     formdata.append(value, values[value])
+            // }
 
-            let result = await axios.post('/category', formdata)
+            let result = await axios.post('/category', values)
 
             if (result.data.success) {
                 toast.success('Category Added Successfully')
@@ -72,7 +72,7 @@ function AddCatgeoryModal({ modalIsOpen, closeModal, getRoute }) {
                                     className="block mt-2 w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
-                            <div className='mt-4'>
+                            {/* <div className='mt-4'>
                                 <label
                                     id="image"
                                     className="block w-full text-sm font-medium leading-6 text-gray-900"
@@ -87,7 +87,7 @@ function AddCatgeoryModal({ modalIsOpen, closeModal, getRoute }) {
                                     type="file"
                                     className="block mt-2 w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                                 />
-                            </div>
+                            </div> */}
 
                             <div className="mt-8 flex gap-4">
                                 <button

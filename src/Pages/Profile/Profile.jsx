@@ -167,7 +167,7 @@ function Profile() {
                                             <div>
                                                 <div className="flex justify-between text-base font-medium text-gray-900">
                                                     <h3>
-                                                        <a href={`product/` + value?.product_sku}>{value?.item?.product_name}</a>
+                                                        <a href={`product/` + value?.sku}>{value?.item?.name}</a>
                                                     </h3>
                                                     <p className="ml-4">Rs. {value?.price}</p>
                                                 </div>

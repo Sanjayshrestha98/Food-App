@@ -66,6 +66,7 @@ function AddProduct({ modalIsOpen, closeModal, getRoute }) {
     }
   }
 
+
   return (
     <Modal
       ariaHideApp={false}
@@ -80,10 +81,10 @@ function AddProduct({ modalIsOpen, closeModal, getRoute }) {
       <div className='mt-4'>
         <Formik
           initialValues={{
-            product_name: "",
+            name: "",
             category: "",
             description: "",
-            stock: "",
+            calorie_count: "",
             price: "",
           }}
           onSubmit={async (values, actions) => {
@@ -95,16 +96,16 @@ function AddProduct({ modalIsOpen, closeModal, getRoute }) {
               <div className='grid grid-cols-2 gap-3'>
                 <div>
                   <label
-                    id="product_name"
+                    id="name"
                     className="block w-full text-sm font-medium leading-6 text-gray-900"
                   >
                     Name
                   </label>
                   <Field
                     required
-                    name="product_name"
-                    value={props.values.product_name}
-                    aria-labelledby="product_name"
+                    name="name"
+                    value={props.values.name}
+                    aria-labelledby="name"
                     className="block mt-2 w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -154,15 +155,15 @@ function AddProduct({ modalIsOpen, closeModal, getRoute }) {
                 </div>
                 <div>
                   <label
-                    id="stock"
+                    id="calorie_count"
                     className="block w-full text-sm font-medium leading-6 text-gray-900"
                   >
-                    Stock
+                    Calorie Count
                   </label>
                   <Field
                     type="number"
                     className="block mt-2 w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
-                    name={`stock`} />
+                    name={`calorie_count`} />
 
                 </div>
                 <div>
@@ -179,7 +180,7 @@ function AddProduct({ modalIsOpen, closeModal, getRoute }) {
                     name={`price`} />
 
                 </div>
-                
+
                 <div>
                   <label
                     id="images"

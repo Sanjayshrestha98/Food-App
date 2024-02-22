@@ -119,7 +119,7 @@ function CheckoutPage({ modalIsOpen, closeModal, getRoute, cartData }) {
                     <button type='submit' onClick={(e) => {
                         e.preventDefault()
                         checkout()
-                    }} className="bg-gray-500 mt-4 py-3 px-4 rounded-sm text-white text-center hover:bg-gray-600 transition duration-200 w-full inline-block">Checkout</button>
+                    }} className="bg-green-500 mt-4 py-3 px-4 rounded-sm text-white text-center hover:bg-green-600 transition duration-200 w-full inline-block">Checkout</button>
                     <button onClick={() => {
                         closeModal()
                     }} className="bg-gray-500 mt-4 py-3 px-4 rounded-sm text-white text-center hover:bg-gray-600 transition duration-200 w-full inline-block">Cancel</button>
