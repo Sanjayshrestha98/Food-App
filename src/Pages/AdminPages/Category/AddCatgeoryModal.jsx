@@ -56,7 +56,7 @@ function AddCatgeoryModal({ modalIsOpen, closeModal, getRoute }) {
                 >
                     {(props) => (
                         <Form>
-                            <div>
+                            <div className='bg-white dark:bg-red-200'>
                                 <label
                                     id="name"
                                     className="block w-full text-sm font-medium leading-6 text-gray-900"
@@ -99,7 +99,7 @@ function AddCatgeoryModal({ modalIsOpen, closeModal, getRoute }) {
                                 <button
                                     onClick={closeModal}
                                     type="button"
-                                    className="flex w-full justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-800 shadow-sm hover:bg-red-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+                                    className="flex w-full justify-center rounded-md bg-gray-400 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-800 shadow-sm hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
                                 >
                                     Close
                                 </button>

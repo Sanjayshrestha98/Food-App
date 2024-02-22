@@ -1,5 +1,5 @@
 import { Fragment, useContext, useState } from 'react'
-import { FaBars, FaBell } from 'react-icons/fa'
+import { FaBars, FaBell, FaMoon, FaSun } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
 import { Link, useLocation } from 'react-router-dom'
 import { AuthContext } from '../../context/authContext'
@@ -25,6 +25,7 @@ export default function AdminHeader() {
 
     const [open, setOpen] = useState(false)
     const location = useLocation()
+
 
     const authUser = useContext(AuthContext)
 
@@ -75,7 +76,17 @@ export default function AdminHeader() {
                                     </div>
                                 </div> */}
                         </div>
-                        <div className="">
+                        <div className=" flex items-center">
+                            <button
+                                className='block rounded py-2 pl-3 pr-4 md:p-0'
+                                onClick={() => localStorage.theme === 'dark'}
+                            >
+                                {localStorage.getItem('theme') === 'dark' ? (
+                                    <FaSun className='text-yellow-200' />
+                                ) : (
+                                    <FaMoon />
+                                )}
+                            </button>
                             <div className="ml-4 flex items-center md:ml-6">
 
                                 <div className="relative ml-3 group">
