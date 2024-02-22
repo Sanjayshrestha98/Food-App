@@ -4,6 +4,7 @@ import EditProfile from './EditProfile'
 import toast from 'react-hot-toast'
 import { AuthContext } from '../../context/authContext'
 import { FaEdit, FaImage } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 function Profile() {
     const { userDetails, setUserDetails } = useContext(AuthContext)
@@ -150,7 +151,7 @@ function Profile() {
                         <h4 className="text-xl dark:text-white text-gray-900 font-bold">My Orders</h4>
                         <ul className="mt-2 dark:text-white text-gray-700 grid grid-cols-3 ">
                             {
-                                orderDetails?.map((value, index) => (
+                                orderDetails.length > 0 ? orderDetails?.map((value, index) => (
                                     <li className="flex p-6 shadow" key={index}>
                                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                             <img src={`${import.meta.env.VITE_APP_BASE_URI}${value?.item?.images[0]}`} alt="Wishlist product." className="h-full w-full object-cover object-center" />
@@ -173,7 +174,11 @@ function Profile() {
                                             </div>
                                         </div>
                                     </li>
-                                ))
+                                )) :
+                                    <div className='flex flex-col'>
+                                        <label className='text-red-600'>No Orders Yet ! </label>
+                                        <Link to={'/product'} className='mt-4 p-3 bg-blue-800 px-6 text-white rounded text-center w-fit'>Explore Items</Link>
+                                    </div>
                             }
 
                         </ul>
