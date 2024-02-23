@@ -159,6 +159,7 @@ function Orders() {
                             <th className='p-3'>#</th>
                             <th className='p-3'>Customer Name</th>
                             <th className='p-3'>Contact</th>
+                            <th className='p-3'>Shiping Address</th>
                             <th className='p-3'>Email</th>
                             <th className='p-3'>Cart #</th>
                             <th className='p-3'>Product</th>
@@ -179,8 +180,9 @@ function Orders() {
                                 orderData.map((value, index) => (
                                     <tr key={index} className='border-b'>
                                         <td className='p-3'>{index + 1}</td>
-                                        <td className='p-3'>{value?.cart?.user_id?.firstname}</td>
-                                        <td className='p-3'>{value?.cart?.user_id?.contact}</td>
+                                        <td className='p-3'>{value?.cart?.user_id?.name}</td>
+                                        <td className='p-3'>{value?.cart?.user_id?.mobile_no}</td>
+                                        <td className='p-3'>{value?.cart?.shipping_address}</td>
                                         <td className='p-3'>{value?.cart?.user_id?.email}</td>
                                         <td className='p-3'>{value?.cart?.cart_no}</td>
                                         <td className='p-3'>{value?.item?.name}</td>

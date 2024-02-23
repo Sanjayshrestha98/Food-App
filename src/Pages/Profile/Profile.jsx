@@ -76,6 +76,12 @@ function Profile() {
 
     console.log(orderDetails)
 
+    const statusMap = {
+        ORDER: "Pending",
+        PROCEED: "Processing",
+        DELIVERED: "Delivered"
+    };
+
     return (
         <div className="h-full bg-gray-50 dark:bg-black p-8 max-w-7xl mx-auto">
 
@@ -169,8 +175,9 @@ function Profile() {
                                             </div>
                                             <div className="flex flex-1 items-center mt-2 justify-end text-sm">
                                                 <p onClick={() => {
-                                                    // addToWishlist(value?.product._id)
-                                                }} type="button" className="font-medium text-red-600 hover:text-red-500">Status : {value?.status}</p>
+                                                }} type="button" className="font-medium text-red-600 hover:text-red-500">
+                                                    Status : {statusMap[value?.status]}
+                                                </p>
                                             </div>
                                         </div>
                                     </li>

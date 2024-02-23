@@ -10,8 +10,8 @@ function CheckoutPage({ modalIsOpen, closeModal, getRoute, cartData }) {
         url: 'https://a.khalti.com/api/v2/epayment/initiate/',
         lookupUrl: 'https://a.khalti.com/api/v2/epayment/lookup/',
         authorization: 'Key 7c1b2c7bea3642e8936b7dd51328a8c5',
-        return_url: 'http://localhost:1111/carts/checkout',
-        website_url: 'http://localhost:3001'
+        return_url: 'http://localhost:1000/carts/checkout',
+        website_url: 'http://localhost:3000'
     }
 
 
